@@ -1,0 +1,47 @@
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-bottom: 1rem;
+}
+
+.markdown-body p {
+  margin-bottom: 1rem;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin-bottom: 1rem;
+}
+
+.markdown-body a {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.markdown-body code {
+  background-color: #f1f5f9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #6b7280;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown-body pre {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  overflow-x: auto;
+}
