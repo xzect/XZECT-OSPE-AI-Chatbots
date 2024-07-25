@@ -13,7 +13,9 @@ export default function ChatInterface() {
     setInput,
     handleInputChange,
     handleSubmit,
-  } = useChat();
+    error,
+  } = useChat({ keepLastMessageOnError: true });
+
   return (
     <>
       <div className="container h-full max-w-[768px] pt-24 flex">
@@ -23,7 +25,11 @@ export default function ChatInterface() {
         {messages.length === 0 ? (
           <DefaultPrompt setInput={setInput} handleSubmit={handleSubmit} />
         ) : (
-          <MessageStream isLoading={isLoading} messages={messages} />
+          <MessageStream
+            error={error}
+            isLoading={isLoading}
+            messages={messages}
+          />
         )}
       </div>
 
