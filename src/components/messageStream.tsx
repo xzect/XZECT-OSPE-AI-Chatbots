@@ -63,7 +63,7 @@ function MessageList({ role, content, status }: MessageListProps): JSX.Element {
       >
         {role === "user" ? <User size={16} /> : <BotMessageSquare size={22} />}
       </div>
-      <div className=" border-b pt-4 flex-1 ">
+      <div className="border-b pt-4 flex-1 overflow-auto">
         {status ? (
           <div>{status}</div>
         ) : (
