@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import AuthProvider from "@/components/providers/AuthProvider"
-
-const inter = Inter({ subsets: ["latin"] })
+import { GeistMono } from "geist/font/mono"
+import { Header, Sidebar } from "@/components"
 
 export const metadata: Metadata = {
   title: "Sales Assistant AI Chatbot",
@@ -19,7 +18,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body className={`bg-slate-400 ${inter.className}`}>{children}</body>
+        <body className={`bg-slate-400 ${GeistMono.className}`}>
+          <div className="min-h-screen w-screen flex flex-col bg-slate-400">
+            <Header />
+            <div className="h-full w-screen flex justify-stretch flex-grow">
+              <Sidebar />
+              <div className="flex-grow relative max-w-[80%]">{children}</div>
+            </div>
+          </div>
+        </body>
       </AuthProvider>
     </html>
   )

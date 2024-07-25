@@ -1,26 +1,26 @@
-import { getUserConversations, saveMessage } from "@/lib/chatService"
+import { getUserchats, saveMessage } from "@/lib/chatService"
 import { NextResponse } from "next/server"
 
 export async function GET(req: Request) {
   try {
     const { userId } = await req.json()
-    const conversations = await getUserConversations(userId)
+    const chats = await getUserchats(userId)
 
-    if (!conversations) {
+    if (!chats) {
       return NextResponse.json(
-        { message: "No conversation found." },
+        { message: "No chat found." },
         { status: 204 }
       )
     }
 
     return NextResponse.json(
-      { message: "Successfully retrived conversations", data: conversations },
+      { message: "Successfully retrived chats", data: chats },
       { status: 200 }
     )
   } catch (err) {
-    console.log("Error while getting conversation: ", err)
+    console.log("Error while getting chat: ", err)
     return NextResponse.json(
-      { message: "Failed to retrieve conversations" },
+      { message: "Failed to retrieve chats" },
       { status: 500 }
     )
   }
@@ -36,9 +36,9 @@ export async function POST(req: Request) {
       { status: 200 }
     )
   } catch (err) {
-    console.log("Error while saving conversation: ", err)
+    console.log("Error while saving chat: ", err)
     return NextResponse.json(
-      { message: "Failed to save conversation" },
+      { message: "Failed to save chat" },
       { status: 500 }
     )
   }

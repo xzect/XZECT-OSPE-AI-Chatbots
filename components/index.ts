@@ -1,8 +1,7 @@
-import Chat from "./Chat"
-import ChatLayout from "./ChatLayout"
 import Header from "./Header"
-import InputForm from "./InputForm"
 import Sidebar from "./Sidebar"
 import Modal from "./Modal"
+import ChatComponent from "./ChatComponent"
+import Message from "./Message"
 
-export { Chat, ChatLayout, Header, InputForm, Sidebar, Modal }
+export { Header, Sidebar, Modal, ChatComponent, Message }

@@ -23,7 +23,7 @@ const Modal = ({
 }: ModalProps) => {
   const router = useRouter()
   return (
-    <div className="absolute inset-0 backdrop-blur-sm">
+    <div className="absolute inset-0 bg-slate-700/90 backdrop-blur-sm">
       <div className="w-[500px] bg-slate-200/40 rounded-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden">
         <button
           className="absolute top-2 right-2 rounded-full p-1 hover:bg-slate-300"

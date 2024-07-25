@@ -33,7 +33,7 @@ const authOptions: NextAuthOptions = {
           )
 
           if (isCorrectPassword) {
-            return user
+            return { email: user.email, name: user.name, id: user.id }
           } else {
             return null
           }
@@ -43,6 +43,21 @@ const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        token.user = user
+      }
+
+      return token
+    },
+    session({ session, token }) {
+      if (token) {
+        session.user = token.user
+      }
+      return session
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET,
 }
 

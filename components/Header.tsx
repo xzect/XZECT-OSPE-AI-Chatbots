@@ -13,7 +13,6 @@ interface AiModals {
 const Header = () => {
   const router = useRouter()
   const { data, status } = useSession()
-  console.log(status)
 
   const aiModals: AiModals[] = [
     { value: "flash", text: "Gemini 1.5 flash" },
@@ -52,7 +51,7 @@ const Header = () => {
             <div className="flex gap-3">
               <Button
                 btnText="Register"
-                className="bg-transparent text-slate-100 border border-slate-400"
+                className="bg-transparent !text-slate-100 border border-slate-400"
                 onClick={() => router.push("/register")}
               />
               <Button btnText="Log In" onClick={() => router.push("/login")} />
