@@ -1,0 +1,6 @@
+[submodule "AI-Mental-health-supporter-chatbot-server"]
+	path = AI-Mental-health-supporter-chatbot-server
+	url = https://github.com/Aalia-Fathima/AI-Mental-health-supporter-chatbot-server.git
+[submodule "AI-Mental-health-supporter-chatbot-nextjs"]
+	path = AI-Mental-health-supporter-chatbot-nextjs
+	url = https://github.com/Aalia-Fathima/AI-Mental-health-supporter-chatbot-nextjs.git
