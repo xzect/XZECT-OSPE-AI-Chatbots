@@ -1,5 +1,7 @@
+import prisma from "@/lib/dbClient"
 import { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import bcrypt from "bcrypt"
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -18,34 +20,32 @@ const authOptions: NextAuthOptions = {
           throw Error("All fields are required")
         }
 
-        const user = {
-          id: "ok123",
-          name: "Ashish Vishwakarma",
-          email: "ashisvi7519@gmail.com",
-          password: "12341234",
-          role: "admin",
-          age: 22,
-        }
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credential.email,
+          },
+        })
 
-        if (
-          credential?.email === user.email &&
-          credential?.password === user.password
-        ) {
-          return user
+        if (user) {
+          const isCorrectPassword = await bcrypt.compare(
+            credential.password,
+            user.password
+          )
+
+          if (isCorrectPassword) {
+            return user
+          } else {
+            return null
+          }
+        } else {
+          return null
         }
-        return null
       },
     }),
   ],
-  callbacks: {
-    jwt: async ({ token, user }) => {
-      return token
-    },
-    session: async ({ session, token, user }) => {
-      // session.user.role = user.role
-      return session
-    },
-  },
+  secret: process.env.NEXTAUTH_SECRET,
 }
 
 export default authOptions
+
+// 125121,citah

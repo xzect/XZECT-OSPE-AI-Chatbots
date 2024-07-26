@@ -28,7 +28,7 @@ export async function POST(req: Request) {
         { status: 201 }
       )
     } else {
-      return NextResponse.json({ message: "Duplicate user" }, { status: 409 })
+      return NextResponse.json({ message: "Email already registered." }, { status: 409 })
     }
   } catch (err) {
     console.log("Error while registering user: ", err)
