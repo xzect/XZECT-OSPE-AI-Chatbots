@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import AuthProvider from "@/components/providers/AuthProvider"
-import { Header, Sidebar } from "@/components"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -20,15 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body className={inter.className}>
-          <div className="min-h-screen w-full bg-slate-400">
-            <Header />
-            <div className="h-full w-screen flex justify-center items-center">
-              <Sidebar />
-              <div className="flex-grow">{children}</div>
-            </div>
-          </div>
-        </body>
+        <body className={`bg-slate-400 ${inter.className}`}>{children}</body>
       </AuthProvider>
     </html>
   )

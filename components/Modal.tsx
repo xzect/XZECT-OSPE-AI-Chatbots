@@ -1,5 +1,8 @@
+"use client"
+
 import { IoClose } from "react-icons/io5"
 import Button from "./UI/Button"
+import { useRouter } from "next/navigation"
 
 interface ModalProps {
   title?: string
@@ -18,13 +21,17 @@ const Modal = ({
   onSubmit,
   errorMessage,
 }: ModalProps) => {
+  const router = useRouter()
   return (
     <div className="absolute inset-0 backdrop-blur-sm">
       <div className="w-[500px] bg-slate-200/40 rounded-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden">
-        <button className="absolute top-2 right-2 rounded-full p-1 hover:bg-slate-300">
+        <button
+          className="absolute top-2 right-2 rounded-full p-1 hover:bg-slate-300"
+          onClick={() => router.push("/")}
+        >
           <IoClose size={18} />
         </button>
-        <h1 className="font-bold text-2xl text-center m-3">{title}</h1>
+        <h1 className="font-bold text-2xl text-center m-3 mt-5">{title}</h1>
         <div className="flex justify-center items-center gap-1 flex-col px-6">
           {body}
         </div>

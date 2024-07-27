@@ -1,15 +1,19 @@
-import { getServerSession } from "next-auth"
+"use client"
+
 import { FiEdit } from "react-icons/fi"
 import Button from "./UI/Button"
-import authOptions from "@/app/api/auth/[...nextauth]/options"
+import { signOut, useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 interface AiModals {
   value: string
   text: string
 }
 
-const Header = async () => {
-  const session = await getServerSession(authOptions)
+const Header = () => {
+  const router = useRouter()
+  const { data, status } = useSession()
+  console.log(status)
 
   const aiModals: AiModals[] = [
     { value: "flash", text: "Gemini 1.5 flash" },
@@ -40,16 +44,21 @@ const Header = async () => {
           </select>
         </div>
       </div>
-      <div className="flex">
-        {session?.user ? (
-          <Button btnText="Log Out" />
-        ) : (
-          <div className="flex gap-2">
-            <Button btnText="Register" />
-            <Button btnText="Log In" />
-          </div>
-        )}
-      </div>
+      {status !== "loading" && (
+        <div className="flex">
+          {status === "authenticated" ? (
+            <Button btnText="Log Out" onClick={signOut} />
+          ) : (
+            <div className="flex gap-2">
+              <Button
+                btnText="Register"
+                onClick={() => router.push("/register")}
+              />
+              <Button btnText="Log In" onClick={() => router.push("/login")} />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }

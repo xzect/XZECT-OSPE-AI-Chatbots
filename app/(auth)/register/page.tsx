@@ -24,9 +24,7 @@ const RegisterPage = () => {
     [formData]
   )
 
-  const handleRegister = async (e: any) => {
-    e.preventDefault()
-
+  const handleRegister = async () => {
     const response = await fetch("/api/auth/register", {
       method: "POST",
       body: JSON.stringify(formData),
@@ -38,13 +36,14 @@ const RegisterPage = () => {
       const data = await response.json()
       setErrorMessage(data?.message)
     } else {
-      signIn('credentials', {
+      signIn("credentials", {
         email: formData.email,
         password: formData.password,
-        callbackUrl: "/"
+        callbackUrl: "/",
       })
     }
   }
+
   const bodyContent = (
     <>
       <Input
