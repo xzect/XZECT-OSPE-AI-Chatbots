@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`px-4 py-2 flex justify-center items-center gap-2 bg-slate-200 text-slate-900 rounded-full font-semibold ${className}`}
+      className={`px-5 py-2 flex justify-center items-center gap-2 bg-slate-200 text-slate-900 rounded-full font-semibold ${className}`}
       onClick={onClick}
     >
       {icon && icon}

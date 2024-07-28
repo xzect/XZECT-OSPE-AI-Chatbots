@@ -21,7 +21,7 @@ const Header = () => {
   ]
 
   return (
-    <div className="w-full px-6 py-3 flex justify-between items-center bg-slate-900 text-white">
+    <div className="w-full px-6 py-3 flex justify-between items-center bg-slate-900 text-white shadow-lg shadow-slate-500 border-b border-b-slate-600">
       <div className="flex gap-4">
         <button className="hover:bg-slate-700 p-2 rounded" title="New chat">
           <FiEdit size={28} />
@@ -49,9 +49,10 @@ const Header = () => {
           {status === "authenticated" ? (
             <Button btnText="Log Out" onClick={signOut} />
           ) : (
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               <Button
                 btnText="Register"
+                className="bg-transparent text-slate-100 border border-slate-400"
                 onClick={() => router.push("/register")}
               />
               <Button btnText="Log In" onClick={() => router.push("/login")} />

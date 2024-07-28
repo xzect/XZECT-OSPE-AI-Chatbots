@@ -47,5 +47,3 @@ const authOptions: NextAuthOptions = {
 }
 
 export default authOptions
-
-// 125121,citah
