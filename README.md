@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  Riddler AI
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-message-square"><path d="M12 6V2H8"/><path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z"/><path d="M2 12h2"/><path d="M9 11v2"/><path d="M15 11v2"/><path d="M20 12h2"/></svg>
+</h1>
 
-## Getting Started
+<p align="center">
+  <em>I'm <a href="https://riddler.amanraj.co">Riddler AI</a>, your friendly neighborhood puzzle solver! I'm here to crack codes, unravel mysteries, and make you think outside the box. Think of me as your personal Sherlock Holmes, but with a touch of wit and a whole lot of riddles. So, bring on the brain teasers, the cryptic clues, and the mind-bending puzzles! I'm ready to put my thinking cap on and help you find the answers.</em>
+</p>
 
-First, run the development server:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cb39e49f-bddf-412d-ba01-86f67ff77c58" alt="Repository Thumbnail">
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💻 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **NextJS**
+- **Tailwind CSS**
+- **TypeScript**
+- **Google Gemini**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Core Packages and Libraries
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Shadcn UI**: Used for building a responsive and modern UI. It provides a set of customizable components that are easy to integrate. [Shadcn UI Docs](https://ui.shadcn.com/docs)
 
-## Learn More
+- **react-markdown**: Allows rendering Markdown content within React components, making it easy to display formatted text dynamically. [react-markdown Docs](https://www.npmjs.com/package/react-markdown)
 
-To learn more about Next.js, take a look at the following resources:
+- **zod**: A TypeScript-first schema declaration and validation library. It ensures the data structures in the application are correct and safe. [zod Docs](https://zod.dev/?id=introduction)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **lucide-react**: Provides a comprehensive set of icons in React, enabling a visually appealing interface with minimal effort. [Icons](https://lucide.dev/icons/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Vercel AI SDK**: Integrates AI capabilities into the application, leveraging Vercel's powerful tools for building and deploying AI-powered features. [Vercel AI SDK Documentation](https://vercel.com/docs/ai)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Setup Locally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Prerequisites
+
+- **NodeJS**
+- **Git**
+- **Google Gemini API Key** - [Get your API key](https://ai.google.dev/gemini-api/docs)
+
+### Steps
+
+1. **Clone the project**
+
+   ```bash
+   git clone https://github.com/amanrajrana/Riddler.git
+   ```
+
+2. **Navigate to the project directory**
+
+   ```bash
+   cd Riddler
+   ```
+
+3. **Setup environment variables**
+
+   Copy all example environment variables from `.env.example` to `.env.local`.
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Set the following API key in the `.env.local` file:
+
+   ```env
+   GOOGLE_GENERATIVE_AI_API_KEY=""
+   ```
+
+   Get your `GOOGLE_GENERATIVE_AI_API_KEY` from [Google API](https://makersuite.google.com/app/apikey).
+
+4. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+5. **Start the app**
+
+   ```bash
+   npm run dev
+   ```
+
+## 📚 Authors
+
+**Aman Raj Rana**
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amanrajrana)
+[![github](https://img.shields.io/badge/github-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/amanrajrana)
