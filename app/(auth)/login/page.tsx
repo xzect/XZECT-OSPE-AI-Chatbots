@@ -57,8 +57,8 @@ const LoginPage = () => {
 
   const footerContent = (
     <p>
-      Don't have account
-      <Link href="/login" className="text-blue-600 font-semibold">
+      Don't have account?
+      <Link href="/register" className="text-blue-600 font-semibold">
         {" "}
         Register
       </Link>

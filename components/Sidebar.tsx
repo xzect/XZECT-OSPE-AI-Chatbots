@@ -6,7 +6,7 @@ const Sidebar = async () => {
   const session = await getServerSession(authOptions)
 
   return (
-    <div className="bg-slate-900 w-[300px] text-white p-3 flex flex-col">
+    <div className="bg-slate-900 w-[300px] text-white p-3 flex flex-col border-r border-r-slate-600">
       <div className="flex-grow">
         <h2 className="text-lg mb-3 font-bold ml-1">Recent chats</h2>
         <ul>
