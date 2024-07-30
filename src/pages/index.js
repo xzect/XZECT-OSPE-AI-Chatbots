@@ -55,7 +55,7 @@ export default function Home() {
     async function sendMessage(message) {
       // const prompt = message;
       // const prompt = `${basePrompt}\nUser: ${message}`;
-      prompt = `${basePrompt}\n${chatLog.map(entry => `${entry.type === 'user' ? 'User' : 'Bot'}: ${entry.message}`).join('\n')}\nUser: ${message}`;
+      prompt = `${basePrompt}\n${chatLog.map(entry => `${entry.message}`).join('\n')}\nUser: ${message}`;
       setIsLoading(true);
       const result = await model.generateContent(prompt);
       const response = await result.response;
@@ -149,7 +149,7 @@ export default function Home() {
             }`}>
             <div className={`${
               message.type === 'user' ? 'bg-purple-500' : 'bg-gray-800'
-            } rounded-lg p-4 text-white max-w-sm`}>
+            } rounded-lg p-4 text-white max-w-sm`} style={{ whiteSpace: 'pre-wrap' }}>
             {message.message}
             </div>
             </div>
