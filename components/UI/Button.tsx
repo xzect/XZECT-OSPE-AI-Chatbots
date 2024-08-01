@@ -1,9 +1,9 @@
 interface ButtonProps {
-  btnText?: string
-  btnType?: React.HTMLInputTypeAttribute
-  icon?: React.ReactElement
-  onClick?: () => void
-  className?: string
+  btnText?: string;
+  btnType?: React.HTMLInputTypeAttribute;
+  icon?: React.ReactElement;
+  onClick?: () => void;
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
       {icon && icon}
       <span>{btnText}</span>
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

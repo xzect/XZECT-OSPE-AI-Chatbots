@@ -1,34 +1,34 @@
-"use client"
+"use client";
 
-import Modal from "@/components/Modal"
-import Input from "@/components/UI/Input"
-import { signIn } from "next-auth/react"
-import Link from "next/link"
-import { useCallback, useState } from "react"
+import Modal from "@/components/Modal";
+import Input from "@/components/UI/Input";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { useCallback, useState } from "react";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-  })
+  });
 
   const handleChange = useCallback(
     (e: any) => {
-      const name = e.target.name
-      const value = e.target.value
+      const name = e.target.name;
+      const value = e.target.value;
 
-      setFormData({ ...formData, [name]: value })
+      setFormData({ ...formData, [name]: value });
     },
-    [formData]
-  )
+    [formData],
+  );
 
   const handleLogin = useCallback(() => {
     signIn("credentials", {
       email: formData.email,
       password: formData.password,
       callbackUrl: "/",
-    })
-  }, [formData])
+    });
+  }, [formData]);
 
   const bodyContent = (
     <>
@@ -53,7 +53,7 @@ const LoginPage = () => {
         onChangeValue={handleChange}
       />
     </>
-  )
+  );
 
   const footerContent = (
     <p>
@@ -63,7 +63,7 @@ const LoginPage = () => {
         Register
       </Link>
     </p>
-  )
+  );
   return (
     <Modal
       title="Log In"
@@ -72,7 +72,7 @@ const LoginPage = () => {
       footerLabel={footerContent}
       onSubmit={handleLogin}
     />
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;

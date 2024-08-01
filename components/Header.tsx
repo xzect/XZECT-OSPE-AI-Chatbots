@@ -1,30 +1,35 @@
-"use client"
+"use client";
 
-import { FiEdit } from "react-icons/fi"
-import Button from "./UI/Button"
-import { signOut, useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { FiEdit } from "react-icons/fi";
+import Button from "./UI/Button";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface AiModals {
-  value: string
-  text: string
+  value: string;
+  text: string;
 }
 
 const Header = () => {
-  const router = useRouter()
-  const { data, status } = useSession()
+  const router = useRouter();
+  const { data, status } = useSession();
 
   const aiModals: AiModals[] = [
     { value: "flash", text: "Gemini 1.5 flash" },
     { value: "pro", text: "Gemini 1.5 pro" },
-  ]
+  ];
 
   return (
     <div className="w-full px-6 py-3 flex justify-between items-center bg-slate-900 text-white shadow-lg shadow-slate-500 border-b border-b-slate-600">
       <div className="flex gap-4">
-        <button className="hover:bg-slate-700 p-2 rounded" title="New chat">
+        <Link
+          href="/"
+          className="hover:bg-slate-700 p-2 rounded"
+          title="New chat"
+        >
           <FiEdit size={28} />
-        </button>
+        </Link>
         <div className="bg-slate-700 rounded-full py-2 px-3">
           <select
             name="modal"
@@ -60,7 +65,7 @@ const Header = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

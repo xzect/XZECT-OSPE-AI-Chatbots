@@ -1,12 +1,12 @@
 interface InputProps {
-  label?: string
-  inputId?: string
-  name?: string
-  required?: boolean
-  placeholder?: string
-  inputType?: React.HTMLInputTypeAttribute
-  value?: string
-  onChangeValue?: (e: any) => void
+  label?: string;
+  inputId?: string;
+  name?: string;
+  required?: boolean;
+  placeholder?: string;
+  inputType?: React.HTMLInputTypeAttribute;
+  value?: string;
+  onChangeValue?: (e: any) => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = ({
         onChange={onChangeValue}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;

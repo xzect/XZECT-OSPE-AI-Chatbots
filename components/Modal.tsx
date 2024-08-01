@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { IoClose } from "react-icons/io5"
-import Button from "./UI/Button"
-import { useRouter } from "next/navigation"
+import { IoClose } from "react-icons/io5";
+import Button from "./UI/Button";
+import { useRouter } from "next/navigation";
 
 interface ModalProps {
-  title?: string
-  body?: React.ReactElement
-  buttonLabel?: string
-  footerLabel?: React.ReactElement
-  onSubmit?: (e: any) => void
-  errorMessage?: string | null
+  title?: string;
+  body?: React.ReactElement;
+  buttonLabel?: string;
+  footerLabel?: React.ReactElement;
+  onSubmit?: (e: any) => void;
+  errorMessage?: string | null;
 }
 
 const Modal = ({
@@ -21,7 +21,7 @@ const Modal = ({
   onSubmit,
   errorMessage,
 }: ModalProps) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="absolute inset-0 bg-slate-700/90 backdrop-blur-sm">
       <div className="w-[500px] bg-slate-200/40 rounded-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden">
@@ -49,7 +49,7 @@ const Modal = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

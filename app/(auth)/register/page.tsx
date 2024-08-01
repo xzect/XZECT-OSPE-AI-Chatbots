@@ -1,28 +1,28 @@
-"use client"
+"use client";
 
-import Modal from "@/components/Modal"
-import Input from "@/components/UI/Input"
-import { signIn } from "next-auth/react"
-import Link from "next/link"
-import { useCallback, useState } from "react"
+import Modal from "@/components/Modal";
+import Input from "@/components/UI/Input";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { useCallback, useState } from "react";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-  })
-  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  });
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = useCallback(
     (e: any) => {
-      const name = e.target.name
-      const value = e.target.value
+      const name = e.target.name;
+      const value = e.target.value;
 
-      setFormData({ ...formData, [name]: value })
+      setFormData({ ...formData, [name]: value });
     },
-    [formData]
-  )
+    [formData],
+  );
 
   const handleRegister = async () => {
     const response = await fetch("/api/auth/register", {
@@ -31,18 +31,18 @@ const RegisterPage = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    })
+    });
     if (!response.ok) {
-      const data = await response.json()
-      setErrorMessage(data?.message)
+      const data = await response.json();
+      setErrorMessage(data?.message);
     } else {
       signIn("credentials", {
         email: formData.email,
         password: formData.password,
         callbackUrl: "/",
-      })
+      });
     }
-  }
+  };
 
   const bodyContent = (
     <>
@@ -77,7 +77,7 @@ const RegisterPage = () => {
         onChangeValue={handleChange}
       />
     </>
-  )
+  );
 
   const footerContent = (
     <p>
@@ -87,7 +87,7 @@ const RegisterPage = () => {
         Log In
       </Link>
     </p>
-  )
+  );
   return (
     <Modal
       title="Register"
@@ -97,7 +97,7 @@ const RegisterPage = () => {
       onSubmit={handleRegister}
       errorMessage={errorMessage}
     />
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;

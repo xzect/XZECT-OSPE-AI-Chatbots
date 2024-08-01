@@ -1,22 +1,23 @@
-"use client"
+"use client";
 
-import { BiSend } from "react-icons/bi"
-import { useCallback, useState } from "react"
-import { usePathname, useRouter } from "next/navigation"
-import apiRequest from "@/lib/apiRequest"
-import Message from "./Message"
+import { BiSend } from "react-icons/bi";
+import { useCallback, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import apiRequest from "@/lib/apiRequest";
+import Message from "./Message";
 
 const ChatComponent = ({ chat }: { chat?: any }) => {
-  const router = useRouter()
-  const pathname = usePathname()
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const [prompt, setPrompt] = useState("")
+  const [prompt, setPrompt] = useState("");
+  const [messages, setMessages] = useState(chat?.messages || []);
 
   const handleSubmit = useCallback(async () => {
-    console.log("submitting")
-    let chatId: string | undefined
+    console.log("submitting");
+    let chatId: string | undefined;
     if (chat) {
-      chatId = chat.id
+      chatId = chat.id;
     }
 
     try {
@@ -26,22 +27,28 @@ const ChatComponent = ({ chat }: { chat?: any }) => {
         {
           prompt,
           chatId,
-        }
-      )
-      const message = data?.message
+        },
+      );
+      const message = data?.message;
 
-      if (pathname === "/" && message) {
-        router.push(`/chat/${message.chatId}`)
+      if (message) {
+        setMessages((prevMessages: any) => [...prevMessages, message]);
+
+        if (pathname === "/") {
+          router.push(`/chat/${message.chatId}`);
+        }
       }
     } catch (error) {
-      console.error("Error submitting message:", error)
+      console.error("Error submitting message:", error);
+    } finally {
+      setPrompt("");
     }
-  }, [prompt, chat, pathname, router])
+  }, [prompt, chat, pathname, router]);
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-grow overflow-y-scroll">
-        {chat?.messages.map((message: any) => (
+      <div className="flex-grow h-[calc(100vh-200px)] overflow-y-scroll pb-[100px]">
+        {messages.map((message: any) => (
           <Message
             prompt={message.prompt}
             result={message.result}
@@ -56,6 +63,7 @@ const ChatComponent = ({ chat }: { chat?: any }) => {
             id="prompt"
             placeholder="Enter your prompt"
             className="resize-none w-full bg-slate-400 rounded-lg flex-grow outline-none border-0 p-2"
+            value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           ></textarea>
           <button
@@ -67,7 +75,7 @@ const ChatComponent = ({ chat }: { chat?: any }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ChatComponent
+export default ChatComponent;

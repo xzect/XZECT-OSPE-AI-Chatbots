@@ -1,6 +1,6 @@
 const Message: React.FC<{
-  prompt: string
-  result: string
+  prompt: string;
+  result: string;
 }> = ({ prompt, result }) => {
   return (
     <div className="text-[16px] flex flex-col">
@@ -11,7 +11,7 @@ const Message: React.FC<{
         {result}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Message
+export default Message;
