@@ -1,10 +1,10 @@
-import { getUserchats } from "@/lib/chatService";
-import getCurrentUser from "@/lib/getCurrentUser";
-import Link from "next/link";
+import { getUserchats } from "@/lib/chatService"
+import getCurrentUser from "@/lib/getCurrentUser"
+import Link from "next/link"
 
 const Sidebar = async () => {
-  const { userId, name, email }: any = await getCurrentUser();
-  const chatList = await getUserchats(userId);
+  const { userId, name, email }: any = await getCurrentUser()
+  const chatList = await getUserchats(userId)
   return (
     <div className="bg-slate-900 w-[300px] text-white p-3 flex flex-col border-r border-r-slate-600">
       {userId ? (
@@ -13,7 +13,10 @@ const Sidebar = async () => {
           <ul>
             {chatList.map((chat) => (
               <Link href={`/chat/${chat.id}`}>
-                <li className="bg-slate-700/60 px-3 py-2 font-semibold mb-2 rounded-lg">
+                <li
+                  className="bg-slate-700/60 px-3 py-2 font-semibold mb-2 rounded-lg"
+                  key={chat.id}
+                >
                   {chat.title}
                 </li>
               </Link>
@@ -46,7 +49,7 @@ const Sidebar = async () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

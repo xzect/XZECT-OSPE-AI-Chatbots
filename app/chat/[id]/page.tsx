@@ -1,10 +1,17 @@
-import { ChatComponent, Message } from "@/components";
-import { getChatById } from "@/lib/chatService";
+import { redirect } from "next/navigation"
+import { ChatComponent } from "@/components"
+import { getChatById } from "@/lib/chatService"
+import getCurrentUser from "@/lib/getCurrentUser"
 
 const ChatPage = async ({ params }: { params: { id: string } }) => {
-  const chat = await getChatById(params.id);
+  const chat = await getChatById(params.id)
+  const { userId } = await getCurrentUser()
 
-  return <ChatComponent chat={chat} />;
-};
+  if (!userId) {
+    redirect("/login")
+  }
 
-export default ChatPage;
+  return <ChatComponent chat={chat} />
+}
+
+export default ChatPage

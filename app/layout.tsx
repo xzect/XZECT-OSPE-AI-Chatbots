@@ -23,7 +23,7 @@ export default function RootLayout({
             <Header />
             <div className="h-full w-screen flex justify-stretch flex-grow">
               <Sidebar />
-              <div className="flex-grow relative max-w-[80%]">{children}</div>
+              <div className="flex-grow max-w-[80%]">{children}</div>
             </div>
           </div>
         </body>

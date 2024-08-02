@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import { BiSend } from "react-icons/bi";
-import { useCallback, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import apiRequest from "@/lib/apiRequest";
-import Message from "./Message";
+import { BiSend } from "react-icons/bi"
+import { useCallback, useState } from "react"
+import { usePathname, useRouter } from "next/navigation"
+import apiRequest from "@/lib/apiRequest"
+import Message from "./Message"
 
 const ChatComponent = ({ chat }: { chat?: any }) => {
-  const router = useRouter();
-  const pathname = usePathname();
+  const router = useRouter()
+  const pathname = usePathname()
 
-  const [prompt, setPrompt] = useState("");
-  const [messages, setMessages] = useState(chat?.messages || []);
+  const [prompt, setPrompt] = useState("")
+  const [messages, setMessages] = useState(chat?.messages || [])
 
   const handleSubmit = useCallback(async () => {
-    console.log("submitting");
-    let chatId: string | undefined;
+    console.log("submitting")
+    let chatId: string | undefined
     if (chat) {
-      chatId = chat.id;
+      chatId = chat.id
     }
 
     try {
@@ -27,26 +27,26 @@ const ChatComponent = ({ chat }: { chat?: any }) => {
         {
           prompt,
           chatId,
-        },
-      );
-      const message = data?.message;
+        }
+      )
+      const message = data?.message
 
       if (message) {
-        setMessages((prevMessages: any) => [...prevMessages, message]);
+        setMessages((prevMessages: any) => [...prevMessages, message])
 
         if (pathname === "/") {
-          router.push(`/chat/${message.chatId}`);
+          router.push(`/chat/${message.chatId}`)
         }
       }
     } catch (error) {
-      console.error("Error submitting message:", error);
+      console.error("Error submitting message:", error)
     } finally {
-      setPrompt("");
+      setPrompt("")
     }
-  }, [prompt, chat, pathname, router]);
+  }, [prompt, chat, pathname, router])
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col relative h-full">
       <div className="flex-grow h-[calc(100vh-200px)] overflow-y-scroll pb-[100px]">
         {messages.map((message: any) => (
           <Message
@@ -75,7 +75,7 @@ const ChatComponent = ({ chat }: { chat?: any }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ChatComponent;
+export default ChatComponent
