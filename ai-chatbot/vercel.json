@@ -1,1 +1,17 @@
 
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "interview-coach-chatbot/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "interview-coach-chatbot/build/$1"
+    }
+  ]
+}
