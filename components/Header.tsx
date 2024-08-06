@@ -1,6 +1,6 @@
 "use client";
 
-import { FiEdit } from "react-icons/fi";
+import { FiEdit, FiMenu } from "react-icons/fi";
 import Button from "./UI/Button";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -30,7 +30,7 @@ const Header = () => {
         >
           <FiEdit size={28} />
         </Link>
-        <div className="bg-slate-700 rounded-full py-2 px-3">
+        <div className="hidden sm:block bg-slate-700 rounded-full py-2 px-3">
           <select
             name="modal"
             id="modal"

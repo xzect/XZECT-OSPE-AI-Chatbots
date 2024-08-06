@@ -3,8 +3,10 @@
 import { BiSend } from "react-icons/bi"
 import { useCallback, useState } from "react"
 import { usePathname, useRouter } from "next/navigation"
+
 import apiRequest from "@/lib/apiRequest"
 import Message from "./Message"
+import HomeComponent from "./HomeComponent"
 
 const ChatComponent = ({ chat }: { chat?: any }) => {
   const router = useRouter()
@@ -14,7 +16,6 @@ const ChatComponent = ({ chat }: { chat?: any }) => {
   const [messages, setMessages] = useState(chat?.messages || [])
 
   const handleSubmit = useCallback(async () => {
-    console.log("submitting")
     let chatId: string | undefined
     if (chat) {
       chatId = chat.id
@@ -47,14 +48,18 @@ const ChatComponent = ({ chat }: { chat?: any }) => {
 
   return (
     <div className="flex flex-col relative h-full">
-      <div className="flex-grow h-[calc(100vh-200px)] overflow-y-scroll pb-[100px]">
-        {messages.map((message: any) => (
-          <Message
-            prompt={message.prompt}
-            result={message.result}
-            key={message.id}
-          />
-        ))}
+      <div className="flex-grow h-[calc(100vh-200px)] overflow-y-scroll px-3 pb-[100px]">
+        {chat ? (
+          messages.map((message: any) => (
+            <Message
+              prompt={message.prompt}
+              result={message.result}
+              key={message.id}
+            />
+          ))
+        ) : (
+          <HomeComponent setPrompt={setPrompt} />
+        )}
       </div>
       <div className="bg-slate-900 p-3 absolute bottom-0 left-0 right-0">
         <div className="flex gap-2">
