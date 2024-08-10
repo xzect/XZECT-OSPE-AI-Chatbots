@@ -11,7 +11,7 @@ const nextConfig = {};
 
 module.exports = {
     env: {
-        GEMINI_API_KEY: "AIzaSyD-_IVYl5taC_Ir061z-Lf97cIKHXRO-zQ"
+        GEMINI_API_KEY: process.env.GEMINI_API_KEY
     },
     ...nextConfig
 };
