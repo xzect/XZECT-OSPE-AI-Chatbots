@@ -35,10 +35,13 @@ export function Chatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-    });
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'end',
+      });
+    }, 0);
   }, [messages]);
 
   const handleTopicClick = async (topic: string) => {
