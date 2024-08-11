@@ -1,18 +1,71 @@
-<h1 align="center">Hi 👋, I'm Interview Coach Chatbot chatbot</h1>
-<h3 align="center">Interactive Chatbot for Interview Preparation</h3>
+# IT Support Chatbot
 
-- 🔭 🔭 I’m currently working on developing and improving the Interview Coach Chatbot, which uses the Gemini chatbot to offer tailored interview tips and advice. [chatbot](https://github.com/Mayank561/XZECT-OSPE-AI-Chatbots)
+This project is part of the XZECT-OSPE-AI-Chatbots repository, designed to provide basic IT support and troubleshooting tips through an AI-powered chatbot.
 
-- 🌱 I’m currently learning **Frameworks, courses, etc.**
+## Project Overview
 
-- 👯 Interview Coach Chatbot Project [chatbot](https://github.com/Mayank561/XZECT-OSPE-AI-Chatbots)
+The IT Support Chatbot is a specialized chatbot that assists users with common IT issues. It offers support for software, hardware, networking, and general IT-related queries. The chatbot leverages the Google Gemini model to provide clear and concise responses aimed at helping users troubleshoot and resolve their technical problems efficiently.
 
-- 📫 How to reach me **mayankgupta.edu@gmail.com**
+## Features
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/mayank-gupta-448889217/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/mayank-gupta-448889217/" height="30" width="40" /></a>
-</p>
+- **Common IT Issue Suggestions**: The chatbot suggests common IT issues that users might encounter, such as:
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
+  - My computer is running slow
+  - I can't connect to the internet
+  - How do I reset my password?
+  - My printer isn't working
+  - How to update my software?
+  - My browser is crashing?
+
+- **Responsive Interface**: The chatbot is designed with a user-friendly interface that allows easy interaction with the AI model.
+
+- **Real-time Assistance**: Users receive instant responses to their queries, enabling them to resolve issues quickly.
+
+## Technologies Used
+
+- **Next.js**: A React framework for building web applications.
+- **Google Gemini**: AI model used for natural language understanding and response generation.
+- **Shadcn**: UI components used for the frontend design.
+- **Vercel AI SDK**: Integrates AI capabilities into the chatbot.
+
+## Project Structure
+
+- `src/app/api/chat/route.tsx`: Defines the backend logic for handling chat requests. It uses the Google Gemini model to generate responses.
+- `src/components/chatbot.tsx`: Implements the chatbot interface, including handling user input, displaying messages, and suggesting common IT issues.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm (preferred package manager for this project)
+
+### Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/P666R/XZECT-OSPE-AI-Chatbots.git
+   ```
+
+2. **Checkout to the `it-support` branch**:
+
+   ```bash
+   cd XZECT-OSPE-AI-Chatbots
+   git checkout it-support
+   ```
+
+3. **Install dependencies**:
+
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+4. **Run the development server**:
+
+   ```bash
+   npm run dev
+   ```
+
+   The application should be running at http://localhost:3000.

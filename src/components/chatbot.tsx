@@ -15,7 +15,7 @@ const commonIssues = [
   'How do I reset my password?',
   "My printer isn't working",
   'How to update my software?',
-  'How can I connect to a Wi-Fi network?',
+  'My browser is crashing',
 ];
 
 export function Chatbot() {
@@ -29,6 +29,7 @@ export function Chatbot() {
     messagesEndRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'end',
+      inline: 'end',
     });
   }, [messages]);
 
@@ -39,7 +40,7 @@ export function Chatbot() {
   };
 
   return (
-    <div className="flex flex-col  justify-center w-full max-w-3xl mx-auto">
+    <div className="flex flex-col  justify-center w-full max-w-3xl mx-auto rounded-lg shadow-lg">
       <Header />
       <div
         className="flex flex-col w-full max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden"
