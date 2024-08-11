@@ -38,7 +38,6 @@ export function Chatbot() {
     messagesEndRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'end',
-      inline: 'end',
     });
   }, [messages]);
 
