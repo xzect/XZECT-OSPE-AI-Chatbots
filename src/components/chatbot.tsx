@@ -23,7 +23,6 @@ export function Chatbot() {
   const {
     messages,
     input,
-    setInput,
     handleSubmit,
     handleInputChange,
     isLoading,
