@@ -15,6 +15,7 @@ const commonIssues = [
   'How do I reset my password?',
   "My printer isn't working",
   'How to update my software?',
+  'How can I connect to a Wi-Fi network?',
 ];
 
 export function Chatbot() {
@@ -25,7 +26,10 @@ export function Chatbot() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+    });
   }, [messages]);
 
   const handleTopicClick = (topic: string) => {
