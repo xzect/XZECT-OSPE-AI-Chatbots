@@ -25,8 +25,8 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    const { userId, content, sender } = await req.json();
-    saveMessage(userId, content, sender);
+    const { userId, content } = await req.json();
+    saveMessage(userId, content);
 
     return NextResponse.json(
       { message: "Message saved successfully" },
