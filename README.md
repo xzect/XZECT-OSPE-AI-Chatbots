@@ -2,5 +2,5 @@
 AI-powered chatbots using ChatGPT API integrated with Next.js. 
 
 ## Command to run 
-npm run start:frontend 
-npm run start:backend
+<p>npm run start:frontend,</p>
+<p>npm run start:backend</p>
