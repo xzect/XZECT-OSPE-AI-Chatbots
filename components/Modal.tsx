@@ -9,7 +9,7 @@ interface ModalProps {
   body?: React.ReactElement;
   buttonLabel?: string;
   footerLabel?: React.ReactElement;
-  onSubmit?: (e: any) => void;
+  onSubmit?: () => void;
   errorMessage?: string | null;
 }
 

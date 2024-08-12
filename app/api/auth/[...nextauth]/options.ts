@@ -1,7 +1,7 @@
-import prisma from "@/lib/dbClient";
-import { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcrypt";
+import prisma from "@/lib/dbClient"
+import { NextAuthOptions } from "next-auth"
+import CredentialsProvider from "next-auth/providers/credentials"
+import bcrypt from "bcrypt"
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -17,28 +17,28 @@ const authOptions: NextAuthOptions = {
       },
       async authorize(credential) {
         if (!credential?.email || !credential?.password) {
-          throw Error("All fields are required");
+          throw Error("All fields are required")
         }
 
         const user = await prisma.user.findUnique({
           where: {
             email: credential.email,
           },
-        });
+        })
 
         if (user) {
           const isCorrectPassword = await bcrypt.compare(
             credential.password,
-            user.password,
-          );
+            user.password
+          )
 
           if (isCorrectPassword) {
-            return { email: user.email, name: user.name, id: user.id };
+            return { email: user.email, name: user.name, id: user.id }
           } else {
-            return null;
+            return null
           }
         } else {
-          return null;
+          return null
         }
       },
     }),
@@ -46,19 +46,19 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     jwt({ token, user }) {
       if (user) {
-        token.user = user;
+        token.user = user
       }
 
-      return token;
+      return token
     },
     session({ session, token }) {
-      if (token) {
-        session.user = token.user;
+      if (token && token?.user) {
+        session.user = token.user
       }
-      return session;
+      return session
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
-};
+}
 
-export default authOptions;
+export default authOptions
