@@ -13,8 +13,8 @@ const Sidebar = async () => {
         <div className="flex-grow">
           <h2 className="text-lg mb-3 font-bold ml-1">Recent chats</h2>
           <ul>
-            {chatList.map((chat) => (
-              <Link href={`/chat/${chat.id}`}>
+            {chatList.map((chat: any) => (
+              <Link href={`/chat/[id]`} as={`/chat/${chat.id}`} key={chat.id}>
                 <li
                   className="bg-slate-700/60 px-3 py-2 font-semibold mb-2 rounded-lg"
                   key={chat.id}
