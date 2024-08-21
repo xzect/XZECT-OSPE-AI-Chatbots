@@ -1,1 +1,0 @@
-export const welcomeMessage = "Hi, how can I help you today?";
