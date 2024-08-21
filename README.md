@@ -1,4 +1,5 @@
 # Meditation Chatbot
+https://meditation-chatbot-cr85-4qum4hlw2-anjali-rajs-projects.vercel.app/
 A chatbot designed to guide users through meditation sessions, built with Next.js, TypeScript, Redis, and deployed on Vercel. It features secure authentication, chat history storage, and a smooth user experience.
 
 Features
